@@ -1,0 +1,11 @@
+<h1 align="center" class="header-text">Visi planai</h1>
+
+<%= render 'info' %>
+
+<div class="row">
+
+  <%= render 'plans', obj: @planai %>
+  <%= render 'form' %>
+</div>
+<br>
+<%= link_to 'Atstatyti', root_path, class: "btn btn-sm btn-danger" %>

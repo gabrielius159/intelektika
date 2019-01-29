@@ -1,0 +1,39 @@
+<div class="col-md-8">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Plano pavadinimas</th>
+      <th scope="col">Tinklas</th>
+      <th scope="col">Žinutės</th>
+      <th scope="col">Pokalbiai</th>
+      <th scope="col">Internetas</th>
+      <th scope="col">Kaina/mėn</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% obj.each do |x| %>
+      <tr>
+        <td><%= x.pavadinimas %></td>
+        <td><%= x.tinklas %></td>
+        <% if x.zinutes == 1000 %>
+          <td>Neribotai</td>
+        <% else %>
+          <td><%= x.zinutes %></td>
+        <% end %>
+        <% if x.pokalbiai == 420 %>
+          <td>Neribotai</td>
+        <% else %>
+          <td><%= x.pokalbiai %> min</td>
+        <% end %>
+        <% if x.internetas == 11000 %>
+          <td>Neribotai</td>
+        <% else %>
+          <td><%= x.internetas %> MB</td>
+        <% end %>
+        <td><span class="badge badge-danger"><%= x.kaina %> €/mėn</span></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>
