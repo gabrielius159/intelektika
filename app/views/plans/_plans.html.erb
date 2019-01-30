@@ -7,6 +7,7 @@
       <th scope="col">Žinutės</th>
       <th scope="col">Pokalbiai</th>
       <th scope="col">Internetas</th>
+      <th scope="col">Atstumas</th>
       <th scope="col">Kaina/mėn</th>
     </tr>
     </thead>
@@ -30,8 +31,12 @@
         <% else %>
           <td><%= x.internetas %> MB</td>
         <% end %>
+        <td>
+          <%= Math.sqrt(((@zinutes.to_f - x.zinutes.to_f) * (@zinutes.to_f - x.zinutes.to_f)) + ((@pokalbiai.to_f - x.pokalbiai.to_f) * (@pokalbiai.to_f - x.pokalbiai.to_f)) + ((@internetas.to_f - x.internetas.to_f) * (@internetas.to_f - x.internetas.to_f)) + ((@kaina.to_f - x.kaina.to_f) * (@kaina.to_f - x.kaina.to_f))).to_i %>
+        </td>
         <td><span class="badge badge-danger"><%= x.kaina %> €/mėn</span></td>
       </tr>
+
     <% end %>
 
     </tbody>

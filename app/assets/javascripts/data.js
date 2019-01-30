@@ -13,6 +13,10 @@ $(document).on('turbolinks:load', function() {
     $('#best_pokalbiai').change(function() {
         setTextForData();
     });
+
+    $('#best_kaina').change(function() {
+        setTextForData();
+    });
 });
 
 function setTextForData()
@@ -43,4 +47,6 @@ function setTextForData()
     {
         $('#pokalbiai_js').text($('#best_pokalbiai').val() + ' min');
     }
+
+    $('#kaina_js').text($('#best_kaina').val() + ' €/mėn');
 }

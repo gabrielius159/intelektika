@@ -19,9 +19,10 @@ class PlansController < ApplicationController
 
   def bestplan
 
-    zinutes = params[:best][:zinutes]
-    pokalbiai = params[:best][:pokalbiai]
-    internetas = params[:best][:internetas]
+    @zinutes = params[:best][:zinutes]
+    @pokalbiai = params[:best][:pokalbiai]
+    @internetas = params[:best][:internetas]
+    @kaina = params[:best][:kaina]
 
     @plans = Plan.all
 
@@ -29,7 +30,7 @@ class PlansController < ApplicationController
 
     @plans.each do |x|
       s = Planas.new
-      s.data = Math.sqrt(((zinutes.to_f - x.zinutes.to_f) * (zinutes.to_f - x.zinutes.to_f)) + ((pokalbiai.to_f - x.pokalbiai.to_f) * (pokalbiai.to_f - x.pokalbiai.to_f)) + ((internetas.to_f - x.internetas.to_f) * (internetas.to_f - x.internetas.to_f))).to_f
+      s.data = Math.sqrt(((@zinutes.to_f - x.zinutes.to_f) * (@zinutes.to_f - x.zinutes.to_f)) + ((@pokalbiai.to_f - x.pokalbiai.to_f) * (@pokalbiai.to_f - x.pokalbiai.to_f)) + ((@internetas.to_f - x.internetas.to_f) * (@internetas.to_f - x.internetas.to_f)) + ((@kaina.to_f - x.kaina.to_f) * (@kaina.to_f - x.kaina.to_f))).to_f
       s.id = x.id
       @paskaiciuoti_planai.push(s)
     end
